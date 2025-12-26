@@ -57,6 +57,7 @@ div {
 
 .shayari-item {
     max-width: 100%;
+    cursor: pointer;
 }
 
 .sketches-grid {

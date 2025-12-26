@@ -64,6 +64,8 @@ div {
     flex-wrap: wrap;
     gap: 1rem;
     justify-content: center;
+    width: 100%;
+    /* Add this */
 }
 
 .sketch-item-with-caption {
@@ -77,6 +79,8 @@ div {
     height: 50vh;
     /* Fixed height */
     width: auto;
+    max-width: 100%;
+    /* Add this */
     /* Width adjusts automatically */
     object-fit: contain;
     /* Prevent cropping */

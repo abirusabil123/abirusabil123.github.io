@@ -536,7 +536,6 @@
         }
     }
 
-    // Add this to your existing codeconsole.log('📊 Frontend: Attempting to log visitor...');
     const params = new URLSearchParams({
         user_agent: navigator.userAgent,
         origin: window.location.origin,
@@ -544,12 +543,11 @@
         path: window.location.pathname,
         product: 'abirusabil123.github.io'
     });
-
     // Image beacon - works in ALL browsers including Firefox
     const img = new Image();
     img.src = `https://backend.discoverall.space/api/log-visitor-pixel?${params}`;
     img.onload = () => console.log('✅ Visitor logged successfully');
-    img.onerror = () => { }; // Silently fail
+    img.onerror = () => console.log('✅ Visitor could not be logged');
 </script>
 
 

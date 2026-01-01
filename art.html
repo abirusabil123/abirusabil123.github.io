@@ -536,9 +536,7 @@
         }
     }
 
-    // Add this to your existing code
-    console.log('📊 Frontend: Attempting to log visitor...');
-    console.log('Current URL:', window.location.href);
+    // Add this to your existing codeconsole.log('📊 Frontend: Attempting to log visitor...');
     const params = new URLSearchParams({
         user_agent: navigator.userAgent,
         origin: window.location.origin,
@@ -547,13 +545,18 @@
         product: 'abirusabil123.github.io'
     });
 
-    fetch(`https://backend.discoverall.space/api/log-visitor?${params}`, {
-        method: 'POST'
-    })
-        .then(response => {
-            console.log('📊 Visitor logged successfully:', response.status);
-        })
-        .catch(() => { }); // Silently fail
+    // Image beacon - works in ALL browsers including Firefox
+    const img = new Image();
+    img.src = `https://backend.discoverall.space/api/log-visitor-pixel?${params}`;
+    img.onload = () => console.log('✅ Visitor logged successfully');
+    img.onerror = () => { }; // Silently fail
+
+    // Optional: Keep original fetch for Chrome users
+    if (!navigator.userAgent.includes('Firefox')) {
+        fetch(`https://backend.discoverall.space/api/log-visitor?${params}`, {
+            method: 'POST'
+        }).catch(() => { });
+    }
 </script>
 
 

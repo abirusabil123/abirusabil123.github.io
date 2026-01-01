@@ -535,6 +535,19 @@
             english.style.display = 'none';
         }
     }
+
+    // Minimal version - just add this
+    fetch('/api/log-visitor', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            user_agent: navigator.userAgent,
+            origin: window.location.origin,
+            platform: 'web',
+            path: window.location.pathname,
+            product: 'abirusabil123.github.io'
+        })
+    }).catch(() => { }); // Silently fail
 </script>
 
 

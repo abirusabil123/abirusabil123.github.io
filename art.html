@@ -550,13 +550,6 @@
     img.src = `https://backend.discoverall.space/api/log-visitor-pixel?${params}`;
     img.onload = () => console.log('✅ Visitor logged successfully');
     img.onerror = () => { }; // Silently fail
-
-    // Optional: Keep original fetch for Chrome users
-    if (!navigator.userAgent.includes('Firefox')) {
-        fetch(`https://backend.discoverall.space/api/log-visitor?${params}`, {
-            method: 'POST'
-        }).catch(() => { });
-    }
 </script>
 
 

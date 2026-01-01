@@ -539,24 +539,16 @@
     // Add this to your existing code
     console.log('📊 Frontend: Attempting to log visitor...');
     console.log('Current URL:', window.location.href);
-
-    fetch('https://backend.discoverall.space/api/log-visitor', { // Replace with actual backend URL
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-            user_agent: navigator.userAgent,
-            origin: window.location.origin,
-            platform: 'web',
-            path: window.location.pathname,
-            product: 'abirusabil123.github.io'
-        })
+    const params = new URLSearchParams({
+        user_agent: navigator.userAgent,
+        origin: window.location.origin,
+        platform: 'web',
+        path: window.location.pathname,
+        product: 'abirusabil123.github.io'
+    });
+    fetch(`https://backend.discoverall.space/api/log-visitor?${params}`, {
+        method: 'POST'
     })
-        .then(response => {
-            console.log('📊 Response status:', response.status);
-            return response.json();
-        })
-        .then(data => console.log('📊 Response data:', data))
-        .catch(error => console.error('📊 Fetch error:', error));
 </script>
 
 

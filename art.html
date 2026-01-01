@@ -546,9 +546,14 @@
         path: window.location.pathname,
         product: 'abirusabil123.github.io'
     });
+
     fetch(`https://backend.discoverall.space/api/log-visitor?${params}`, {
         method: 'POST'
     })
+        .then(response => {
+            console.log('📊 Visitor logged successfully:', response.status);
+        })
+        .catch(() => { }); // Silently fail
 </script>
 
 

@@ -41,7 +41,6 @@ div {
 }
 
 .banner-heading {
-    font-size: clamp(2rem, 4vw, 3rem);
     /* Responsive font size */
     white-space: nowrap;
     /* Prevent line break */
@@ -113,7 +112,6 @@ div {
 .nav-links a {
     color: white;
     text-decoration: none;
-    font-size: 1rem;
     white-space: nowrap;
     transition: color 0.3s ease;
 }

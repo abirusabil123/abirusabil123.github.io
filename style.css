@@ -88,7 +88,6 @@ div {
     /* Prevent shrinking */
 }
 
-/* Rest of existing styles remain unchanged */
 .top-nav {
     padding: 1rem 0;
     position: fixed;
@@ -100,6 +99,8 @@ div {
     justify-content: center;
     align-items: center;
     box-shadow: 0 0.2rem 0.5rem #00000055;
+    overflow-x: auto;
+    white-space: nowrap;
 }
 
 .nav-links {
@@ -113,6 +114,7 @@ div {
     color: white;
     text-decoration: none;
     font-size: 1rem;
+    white-space: nowrap;
     transition: color 0.3s ease;
 }
 

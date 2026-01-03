@@ -1,5 +1,4 @@
 body {
-    min-height: 100vh;
     background-color: black;
     margin: 0;
     overflow-x: hidden;
@@ -89,38 +88,9 @@ div {
     /* Prevent shrinking */
 }
 
-@media (max-width: 37.5rem) {
-
-    .sketch-item {
-        height: auto;
-        max-width: 100%;
-        width: 100%;
-    }
-
-    .content-container {
-        width: 100%;
-        flex-direction: column;
-    }
-
-    .content-container-vertical {
-        width: 100%;
-        flex-direction: column;
-    }
-
-    .nav-links {
-        gap: 0.8rem;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    .top-nav {
-        padding: 0.8rem 0;
-    }
-}
-
 /* Rest of existing styles remain unchanged */
 .top-nav {
-    padding: 0.8rem 0;
+    padding: 1rem 0;
     position: fixed;
     top: 0;
     width: 100%;
@@ -129,12 +99,12 @@ div {
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0.2rem 0.5rem #00000055;
 }
 
 .nav-links {
     display: flex;
-    gap: 1.5rem;
+    gap: 1rem;
     margin: 0 auto;
     /* Center the links container */
 }
@@ -142,7 +112,7 @@ div {
 .nav-links a {
     color: white;
     text-decoration: none;
-    font-size: 0.9rem;
+    font-size: 1rem;
     transition: color 0.3s ease;
 }
 
@@ -167,7 +137,7 @@ div {
     background-color: black;
     color: #888;
     text-align: center;
-    transition: opacity 3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: opacity 3s cubic-bezier(0.2, 0.8, 0.2, 1);
     pointer-events: none;
 }
 
@@ -180,4 +150,29 @@ div {
     min-width: 100%;
     overflow-wrap: break-word;
     word-break: break-word;
+}
+
+@media (max-width: 37.5rem) {
+    .sketch-item {
+        height: auto;
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .content-container {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .content-container-vertical {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 1rem;
+        margin: 0 auto;
+        /* Center the links container */
+    }
 }

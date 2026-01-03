@@ -12,6 +12,7 @@
             <a href="index.html">Home</a>
             <a href="work-life.html">Work Life</a>
             <a href="sketches.html">Sketches</a>
+            <a href="shayaris.html">Shayaris</a>
             <a href="art.html">Art</a>
             <a href="products.html">Products</a>
         </span>
@@ -75,5 +76,20 @@
         </div>
     </div>
 </body>
+
+<script>
+    const params = new URLSearchParams({
+        user_agent: navigator.userAgent,
+        origin: window.location.origin,
+        platform: 'web',
+        path: window.location.pathname,
+        product: 'abirusabil123.github.io'
+    });
+    const img = new Image();
+    img.src = `https://backend.discoverall.space/api/log-visitor-pixel?${params}`;
+    img.onload = () => console.log('✅ Visitor logged successfully');
+    img.onerror = () => console.log('✅ Visitor could not be logged');
+</script>
+
 
 </html>

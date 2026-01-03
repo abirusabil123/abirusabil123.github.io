@@ -1,3 +1,6 @@
+<!DOCTYPE html>
+<html>
+
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
@@ -10,6 +13,7 @@
             <a href="index.html">Home</a>
             <a href="work-life.html">Work Life</a>
             <a href="sketches.html">Sketches</a>
+            <a href="shayaris.html">Shayaris</a>
             <a href="art.html">Art</a>
             <a href="products.html">Products</a>
         </span>
@@ -41,20 +45,32 @@
         <div style="flex: 1; display: flex; flex-direction: column; 
                   align-items: center; justify-content: center; text-align: center;">
             <h1 style="color: white;">Greetings</h1>
-            <span style="color: white;">I am an Engineer, a Researcher, and an Inventor.</span>
-            <p>&nbsp;</p>
-
+            <span style="color: white; padding-bottom: 2rem;">I am an Engineer, a Researcher, and an Inventor.</span>
             <i style="color: #888;">"In the midst of chaos, there is also opportunity."</i>
-            <span style="color: #eee;">- Sun Tzu</span>
-            <p>&nbsp;</p>
+            <span style="color: #eee; padding-bottom: 1rem;">- Sun Tzu</span>
             <i style="color: #888;">"Verily, in the remembrance of Allah do hearts find rest."</i>
-            <span style="color: #eee;">- Surah Ar-Ra'd (13:28)</span>
-            <p>&nbsp;</p>
+            <span style="color: #eee; padding-bottom: 1rem;">- Surah Ar-Ra'd (13:28)</span>
             <i style="color: #888;">"Truth alone triumphs."</i>
             <span style="color: #eee;">- Mundaka Upanishad</span>
-            <p>&nbsp;</p>
-            <span style="color: white;">You can reach me at mdsheraj123@gmail.com.</span>
+            <span style="color: white; padding-top: 2rem;">You can reach me at mdsheraj123@gmail.com.</span>
         </div>
     </div>
 
 </body>
+
+<script>
+    const params = new URLSearchParams({
+        user_agent: navigator.userAgent,
+        origin: window.location.origin,
+        platform: 'web',
+        path: window.location.pathname,
+        product: 'abirusabil123.github.io'
+    });
+    const img = new Image();
+    img.src = `https://backend.discoverall.space/api/log-visitor-pixel?${params}`;
+    img.onload = () => console.log('✅ Visitor logged successfully');
+    img.onerror = () => console.log('✅ Visitor could not be logged');
+</script>
+
+
+</html>

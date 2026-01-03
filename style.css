@@ -100,6 +100,8 @@ div {
     box-shadow: 0 0.2rem 0.5rem #00000055;
     overflow-x: auto;
     white-space: nowrap;
+    overflow: visible;
+    -webkit-overflow-scrolling: touch;
 }
 
 .nav-links {

@@ -106,7 +106,10 @@ div {
     display: flex;
     gap: 1rem;
     margin: 0 auto;
-    /* Center the links container */
+    padding: 0 1rem;
+    /* Add padding for edge spacing */
+    overflow-x: auto;
+    /* Enable scroll inside nav links */
 }
 
 .nav-links a {

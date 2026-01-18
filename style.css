@@ -58,10 +58,8 @@ div {
     cursor: pointer;
 }
 
-.hindi-version,
-.english-version {
+.hindi-version {
     white-space: nowrap;
-    font-size: 0.9rem;
 }
 
 .sketches-grid {

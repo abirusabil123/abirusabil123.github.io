@@ -58,6 +58,11 @@ div {
     cursor: pointer;
 }
 
+.hindi-version,
+.english-version {
+    white-space: nowrap;
+}
+
 .sketches-grid {
     display: flex;
     flex-wrap: wrap;

@@ -739,7 +739,7 @@
 
     const params = new URLSearchParams({
         user_agent: navigator.userAgent,
-        origin: window.location.origin,
+        origin: document.referrer || window.location.origin || 'personal website',
         platform: 'web',
         path: window.location.pathname,
         product: 'abirusabil123.github.io'

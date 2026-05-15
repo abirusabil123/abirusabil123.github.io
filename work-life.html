@@ -44,12 +44,12 @@
     const params = new URLSearchParams({
         user_agent: navigator.userAgent,
         origin: document.referrer || window.location.origin || 'personal website',
-        platform: 'web',
+        platform: navigator.userAgent,
         path: window.location.pathname,
         product: 'abirusabil123.github.io'
     });
     const img = new Image();
-    img.src = `https://backend.discoverall.space/api/log-visitor-pixel?${params}`;
+    img.src = `https://backenddiscover.duckdns.org:8443/api/log-visitor-pixel?${params}`;
     img.onload = () => console.log('✅ Visitor logged successfully');
     img.onerror = () => console.log('✅ Visitor could not be logged');
 </script>

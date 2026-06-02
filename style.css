@@ -48,6 +48,10 @@ h1 {
     color: white;
 }
 
+i {
+    color: white;
+}
+
 .banner-heading {
     /* Responsive font size */
     white-space: nowrap;

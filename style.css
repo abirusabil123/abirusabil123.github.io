@@ -40,6 +40,14 @@ div {
     box-sizing: border-box;
 }
 
+span {
+    color: white;
+}
+
+h1 {
+    color: white;
+}
+
 .banner-heading {
     /* Responsive font size */
     white-space: nowrap;

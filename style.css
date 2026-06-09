@@ -24,6 +24,10 @@ body {
     box-sizing: border-box;
 }
 
+.content-container-vertical>div {
+    border: 2px solid green;
+}
+
 .content-container-vertical iframe {
     width: 100%;
     aspect-ratio: 16/9;

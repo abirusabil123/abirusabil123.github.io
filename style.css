@@ -55,6 +55,7 @@ i {
 .banner-heading {
     /* Responsive font size */
     white-space: nowrap;
+    font-size: 3rem;
     /* Prevent line break */
 }
 

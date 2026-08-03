@@ -178,9 +178,16 @@ i {
 }
 
 @media (max-width: 37.5rem) {
+    .shayari-item {
+        width: 100%;
+        cursor: pointer;
+        border: 2px solid green;
+        margin: 1rem;
+        padding: 1rem;
+    }
+
     .sketch-item {
         height: auto;
-        max-width: 100%;
         width: 100%;
     }
 

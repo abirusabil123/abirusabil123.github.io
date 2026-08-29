@@ -73,8 +73,10 @@ i {
     padding: 1rem;
 }
 
-.hindi-version {
-    white-space: nowrap;
+.hindi-version,
+.hinglish-version,
+.english-version {
+    line-height: 1.6;
 }
 
 .sketches-grid {

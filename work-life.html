@@ -41,39 +41,6 @@
 
 </body>
 
-<script>
-    const params = new URLSearchParams({
-        user_agent: navigator.userAgent,
-        origin: document.referrer || window.location.origin || 'personal website',
-        platform: navigator.userAgent,
-        path: window.location.pathname,
-        product: 'abirusabil123.github.io'
-    });
-    const img = new Image();
-    img.src = `https://backenddiscover.duckdns.org:8443/api/log-visitor-pixel?${params}`;
-    img.onload = () => console.log('✅ Visitor logged successfully');
-    img.onerror = () => console.log('✅ Visitor could not be logged');
-
-    // Scroll progress bar
-    const progressBar = document.getElementById('scrollProgressBar');
-    function updateProgressBar() {
-        const scrollTop = window.scrollY;
-        const scrollHeight = document.documentElement.scrollHeight;
-        const clientHeight = window.innerHeight;
-        const maxScroll = scrollHeight - clientHeight;
-        // If page is not scrollable, show full green bar
-        if (maxScroll <= 0) {
-            progressBar.style.width = '100%';
-            return;
-        }
-        const scrollPercent = (scrollTop / maxScroll) * 100;
-        progressBar.style.width = scrollPercent + '%';
-    }
-    // Run on load and on scroll
-    window.addEventListener('scroll', updateProgressBar);
-    window.addEventListener('resize', updateProgressBar);
-    updateProgressBar(); // initial call
-</script>
-
+<script src="script.js"></script>
 
 </html>

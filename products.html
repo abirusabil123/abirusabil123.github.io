@@ -7,6 +7,7 @@
 </head>
 
 <body>
+    <div class="scroll-progress-bar" id="scrollProgressBar"></div>
     <nav class="top-nav">
         <span class="nav-links">
             <a href="index.html">Home</a>
@@ -201,6 +202,26 @@
     img.src = `https://backenddiscover.duckdns.org:8443/api/log-visitor-pixel?${params}`;
     img.onload = () => console.log('✅ Visitor logged successfully');
     img.onerror = () => console.log('✅ Visitor could not be logged');
+
+    // Scroll progress bar
+    const progressBar = document.getElementById('scrollProgressBar');
+    function updateProgressBar() {
+        const scrollTop = window.scrollY;
+        const scrollHeight = document.documentElement.scrollHeight;
+        const clientHeight = window.innerHeight;
+        const maxScroll = scrollHeight - clientHeight;
+        // If page is not scrollable, show full green bar
+        if (maxScroll <= 0) {
+            progressBar.style.width = '100%';
+            return;
+        }
+        const scrollPercent = (scrollTop / maxScroll) * 100;
+        progressBar.style.width = scrollPercent + '%';
+    }
+    // Run on load and on scroll
+    window.addEventListener('scroll', updateProgressBar);
+    window.addEventListener('resize', updateProgressBar);
+    updateProgressBar(); // initial call
 </script>
 
 

@@ -70,7 +70,7 @@
                     </div>
                 </div>
 
-                <div class="hinglish-version">
+                <div class="hinglish-version" style="display: block;">
                     <h2 style="color: green; margin-bottom: 1rem; text-align: center;">Musafir</h2>
                     <div style="color: #ccc; text-align: center; font-style: italic;">
                         <p style="margin-bottom: 1rem;">
@@ -154,7 +154,7 @@
                     </div>
                 </div>
 
-                <div class="hinglish-version">
+                <div class="hinglish-version" style="display: block;">
                     <h2 style="color: green; margin-bottom: 1rem; text-align: center;">Duniya mein Jannat</h2>
                     <div style="color: #ccc; text-align: center; font-style: italic;">
                         <p style="margin-bottom: 1rem;">
@@ -260,7 +260,7 @@
                     </div>
                 </div>
 
-                <div class="hinglish-version">
+                <div class="hinglish-version" style="display: block;">
                     <h2 style="color: green; margin-bottom: 1rem; text-align: center;">Raaj</h2>
                     <div style="color: #ccc; text-align: center; font-style: italic;">
                         <p style="margin-bottom: 1rem;">
@@ -435,7 +435,7 @@
                     </div>
                 </div>
 
-                <div class="hinglish-version">
+                <div class="hinglish-version" style="display: block;">
                     <h2 style="color: green; margin-bottom: 1rem; text-align: center;">Khwahish</h2>
                     <div style="color: #ccc; text-align: center; font-style: italic;">
                         <p style="margin-bottom: 1rem;">
@@ -768,7 +768,7 @@
                     </div>
                 </div>
 
-                <div class="hinglish-version">
+                <div class="hinglish-version" style="display: block;">
                     <h2 style="color: green; margin-bottom: 1rem; text-align: center;">Muqavamat</h2>
                     <div style="color: #ccc; text-align: center; font-style: italic;">
                         <p style="margin-bottom: 1rem;">
@@ -1065,7 +1065,7 @@
                     </div>
                 </div>
 
-                <div class="hinglish-version">
+                <div class="hinglish-version" style="display: block;">
                     <h2 style="color: green; margin-bottom: 1rem; text-align: center;">Naamumkin ki Khwahish<br>(BONUS)
                     </h2>
                     <div style="color: #ccc; text-align: center; font-style: italic;">
@@ -1122,21 +1122,23 @@
 <script>
     function toggleTranslation(element) {
         const hinglish = element.querySelector('.hinglish-version');
-        const english = element.querySelector('.english-version');
         const hindi = element.querySelector('.hindi-version');
+        const english = element.querySelector('.english-version');
 
-        if (hinglish.style.display !== 'none') {
+        if (hinglish.style.display === 'block') {
             hinglish.style.display = 'none';
-            english.style.display = 'block';
-            hindi.style.display = 'none';
-        } else if (english.style.display !== 'none') {
-            hinglish.style.display = 'none';
-            english.style.display = 'none';
             hindi.style.display = 'block';
-        } else {
-            hinglish.style.display = 'block';
             english.style.display = 'none';
+        } else if (hindi.style.display === 'block') {
+            hinglish.style.display = 'none';
             hindi.style.display = 'none';
+            english.style.display = 'block';
+        } else if (english.style.display === 'block') {
+            hinglish.style.display = 'block';
+            hindi.style.display = 'none';
+            english.style.display = 'none';
+        } else {
+            console.log('Error in switching.');
         }
     }
 

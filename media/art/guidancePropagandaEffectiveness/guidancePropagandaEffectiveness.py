@@ -3,17 +3,17 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 startingPropaganda = 5
+startingGuidance = startingPropaganda*60
 numberOfValues = 1000000
+
+def propagandaEffectiveness(x):
+    return math.exp(x) * (startingPropaganda - x)
 
 def guidanceEffectiveness(x):
     p = propagandaEffectiveness(x)
     if p == 0:
         return float('inf')
-    return (startingPropaganda*60) / p
-
-def propagandaEffectiveness(x):
-    return math.exp(x) * (startingPropaganda - x)
-
+    return startingGuidance / p
 
 # Generate x values from 0 to 5
 x_vals = np.linspace(0, 5, numberOfValues)

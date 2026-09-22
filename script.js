@@ -1,9 +1,9 @@
 
 // Log user
 const params = new URLSearchParams({
-    user_agent: navigator.userAgent,
+    user_agent: navigator.userAgent || navigator.platform || 'personal website',
     origin: document.referrer || window.location.origin || 'personal website',
-    platform: navigator.userAgent,
+    platform: navigator.platform || navigator.userAgent || 'personal website',
     path: window.location.pathname,
     product: 'abirusabil123.github.io'
 });

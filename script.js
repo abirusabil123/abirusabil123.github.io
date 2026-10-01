@@ -104,7 +104,8 @@ greetingsText.textContent = greetings[0];
 function typeGreetings() {
     if (!running) return;
     const current = greetings[greetingIndex];
-
+    greetingsText.parentElement.style.direction =
+        /[\u0600-\u06FF]/.test(current) ? "rtl" : "ltr";
     if (!deleting) {
         greetingsText.textContent = current.substring(0, charIndex + 1);
         charIndex++;

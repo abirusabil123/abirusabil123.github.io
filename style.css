@@ -174,7 +174,6 @@ h1 {
     word-break: break-word;
 }
 
-/* Scroll progress bar */
 .scroll-progress-bar {
     position: fixed;
     top: 0;
@@ -185,6 +184,32 @@ h1 {
     z-index: 9999;
     /* above the fixed nav */
     transition: width 0.1s ease-out;
+}
+
+#greetings-text,
+.type-cursor {
+    display: inline-block;
+    vertical-align: top;
+    min-height: 3.5rem;
+    cursor: pointer;
+    color: white;
+}
+
+.type-cursor {
+    margin-left: 2px;
+    animation: blink 0.7s step-end infinite;
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
 }
 
 @media (max-width: 37.5rem) {

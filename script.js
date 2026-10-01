@@ -84,3 +84,64 @@ document.querySelectorAll('.gif-on-click').forEach(img => {
     });
     // Optional: if you want clicking anywhere else to stop playing, you can add handlers
 });
+
+// Index page greetings
+const SPEED = 100;
+const greetings = [
+    "Greetings",
+    "السلام عليكم",
+    "आदाब",
+    "안녕하세요",
+    "Hola"
+];
+const greetingsText = document.getElementById("greetings-text");
+const typeCursor = document.getElementById("type-cursor");
+let greetingIndex = 0;
+let charIndex = 0;
+let deleting = false;
+let running = false;
+greetingsText.textContent = greetings[0];
+function typeGreetings() {
+    if (!running) return;
+    const current = greetings[greetingIndex];
+
+    if (!deleting) {
+        greetingsText.textContent = current.substring(0, charIndex + 1);
+        charIndex++;
+        if (charIndex === current.length) {
+            deleting = true;
+            setTimeout(typeGreetings, 20 * SPEED);
+            return;
+        }
+        setTimeout(typeGreetings, 2 * SPEED);
+    } else {
+        greetingsText.textContent = current.substring(0, charIndex - 1);
+        charIndex--;
+        if (charIndex === 0) {
+            deleting = false;
+            greetingIndex = (greetingIndex + 1) % greetings.length;
+            setTimeout(typeGreetings, 6 * SPEED);
+            return;
+        }
+        setTimeout(typeGreetings, 1 * SPEED);
+    }
+}
+greetingsText.addEventListener("click", () => {
+    if (running) {
+        // Stop and reset
+        running = false;
+        greetingsText.textContent = greetings[0];
+        typeCursor.style.display = "none";
+        greetingIndex = 0;
+        charIndex = 0;
+        deleting = false;
+        return;
+    }
+    running = true;
+    greetingIndex = 0;
+    charIndex = 0;
+    deleting = false;
+    greetingsText.textContent = "";
+    typeCursor.style.display = "inline-block";
+    typeGreetings();
+});

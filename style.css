@@ -104,6 +104,14 @@ h1 {
     /* Prevent shrinking */
 }
 
+.sketch-item.equal-width {
+    height: auto;
+    width: 20rem;
+    /* or any fixed value you prefer */
+    max-width: 100%;
+    object-fit: contain;
+}
+
 .top-nav {
     padding: 1rem 0;
     position: fixed;

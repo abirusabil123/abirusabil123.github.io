@@ -106,7 +106,7 @@ h1 {
 
 .sketch-item.equal-width {
     height: auto;
-    width: 20rem;
+    width: 16rem;
     /* or any fixed value you prefer */
     max-width: 100%;
     object-fit: contain;

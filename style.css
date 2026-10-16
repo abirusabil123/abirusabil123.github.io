@@ -1,0 +1,254 @@
+body {
+    background-color: black;
+    overflow-x: hidden;
+    /* Prevent horizontal scroll */
+}
+
+.content-container {
+    display: flex;
+    width: 80%;
+    margin: auto;
+    padding: 1rem;
+    /* Center on desktop */
+    box-sizing: border-box;
+}
+
+.content-container-vertical {
+    display: flex;
+    width: 80%;
+    margin: auto;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 1rem;
+}
+
+.content-container-vertical iframe {
+    width: 100%;
+    aspect-ratio: 16/9;
+    /* Adjust the ratio as needed */
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+div {
+    box-sizing: border-box;
+}
+
+span {
+    color: white;
+}
+
+h1 {
+    color: white;
+}
+
+.banner-heading {
+    /* Responsive font size */
+    white-space: nowrap;
+    font-size: 3rem;
+    /* Prevent line break */
+}
+
+.shayari-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 0;
+}
+
+.shayari-item {
+    width: 36rem;
+    cursor: pointer;
+    border: 2px solid green;
+    margin: 1rem;
+    padding: 1rem;
+}
+
+.hindi-version,
+.hinglish-version,
+.english-version {
+    line-height: 1.6;
+}
+
+.sketches-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    width: 100%;
+    /* Add this */
+}
+
+.sketch-item-with-caption {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 100%;
+}
+
+.sketch-item {
+    height: 50vh;
+    /* Fixed height */
+    width: auto;
+    max-width: 100%;
+    /* Add this */
+    /* Width adjusts automatically */
+    object-fit: contain;
+    /* Prevent cropping */
+    flex-shrink: 0;
+    /* Prevent shrinking */
+}
+
+.sketch-item.equal-width {
+    height: auto;
+    width: 16rem;
+    /* or any fixed value you prefer */
+    max-width: 100%;
+    object-fit: contain;
+}
+
+.top-nav {
+    padding: 1rem 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #111;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0.2rem 0.5rem #00000055;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+}
+
+.nav-links {
+    display: flex;
+    gap: 1rem;
+    margin: 0 auto;
+    padding: 0 1rem;
+    /* Add padding for edge spacing */
+    overflow-x: auto;
+    /* Enable scroll inside nav links */
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #ff4444;
+}
+
+/* HOVER */
+.hover-text-container {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.hover-content {
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    transform: translate(-50%, -50%);
+    background-color: black;
+    color: #888;
+    text-align: center;
+    transition: opacity 3s cubic-bezier(0.2, 0.8, 0.2, 1);
+    pointer-events: none;
+}
+
+.hover-text-container:hover .hover-content {
+    opacity: 1;
+}
+
+.image-caption {
+    width: 0;
+    min-width: 100%;
+    overflow-wrap: break-word;
+    word-break: break-word;
+}
+
+.scroll-progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 4px;
+    background-color: green;
+    width: 0%;
+    z-index: 9999;
+    /* above the fixed nav */
+    transition: width 0.1s ease-out;
+}
+
+#greetings-text,
+.type-cursor {
+    display: inline-block;
+    vertical-align: top;
+    min-height: 3.5rem;
+    cursor: pointer;
+    color: white;
+}
+
+.type-cursor {
+    margin-left: 2px;
+    animation: blink 0.7s step-end infinite;
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+@media (max-width: 37.5rem) {
+    .shayari-item {
+        width: 100%;
+        cursor: pointer;
+        border: 2px solid green;
+        margin: 0.5rem;
+        padding: 0.5rem;
+        font-size: 0.75rem;
+    }
+
+    .sketch-item {
+        height: auto;
+        width: 100%;
+    }
+
+    .content-container {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .content-container-vertical {
+        width: 100%;
+        flex-direction: column;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 1rem;
+        margin: 0 auto;
+        /* Center the links container */
+    }
+}

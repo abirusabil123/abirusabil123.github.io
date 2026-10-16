@@ -1,0 +1,150 @@
+
+// Log user
+const params = new URLSearchParams({
+    user_agent: navigator.userAgent || 'personal-website',
+    origin: document.referrer || window.location.origin || 'personal-website',
+    platform: navigator.platform + ' personal-website',
+    path: window.location.pathname || 'personal-website',
+    product: 'personal-website'
+});
+const img = new Image();
+img.src = `https://backenddiscover.duckdns.org:8443/api/log-visitor-pixel?${params}`;
+img.onload = () => console.log('✅ Visitor logged successfully');
+img.onerror = () => console.log('✅ Visitor could not be logged');
+
+// Scroll progress bar
+const progressBar = document.getElementById('scrollProgressBar');
+function updateProgressBar() {
+    const scrollTop = window.scrollY;
+    const scrollHeight = document.documentElement.scrollHeight;
+    const clientHeight = window.innerHeight;
+    const maxScroll = scrollHeight - clientHeight;
+    // If page is not scrollable, show full green bar
+    if (maxScroll <= 0) {
+        progressBar.style.width = '100%';
+        return;
+    }
+    const scrollPercent = (scrollTop / maxScroll) * 100;
+    progressBar.style.width = scrollPercent + '%';
+}
+// Run on load and on scroll
+window.addEventListener('scroll', updateProgressBar);
+window.addEventListener('resize', updateProgressBar);
+updateProgressBar(); // initial call
+
+// Toggle shayari language
+function toggleTranslation(element) {
+    const hinglish = element.querySelector('.hinglish-version');
+    const hindi = element.querySelector('.hindi-version');
+    const english = element.querySelector('.english-version');
+
+    if (hinglish.style.display === 'block') {
+        hinglish.style.display = 'none';
+        hindi.style.display = 'block';
+        english.style.display = 'none';
+    } else if (hindi.style.display === 'block') {
+        hinglish.style.display = 'none';
+        hindi.style.display = 'none';
+        english.style.display = 'block';
+    } else if (english.style.display === 'block') {
+        hinglish.style.display = 'block';
+        hindi.style.display = 'none';
+        english.style.display = 'none';
+    } else {
+        console.log('Error in switching.');
+    }
+}
+
+/*
+  Behavior:
+  - First click: swap static -> animated GIF and restart it
+  - Second click: swap back to the static thumbnail
+  - Works even if src becomes absolute URL
+*/
+document.querySelectorAll('.gif-on-click').forEach(img => {
+    const previewSrc = img.getAttribute('src');         // original thumbnail
+    const gifSrcBase = img.dataset.gif;                 // base gif path (no cache param)
+    let playing = false;
+
+    img.style.cursor = 'pointer';
+
+    img.addEventListener('click', () => {
+        if (!playing) {
+            // Force reload of GIF to restart it (append timestamp)
+            const gifSrc = gifSrcBase + (gifSrcBase.includes('?') ? '&' : '?') + 't=' + Date.now();
+            img.src = gifSrc;
+            img.setAttribute('data-playing', 'true');
+            playing = true;
+        } else {
+            // swap back to preview
+            img.src = previewSrc;
+            img.removeAttribute('data-playing');
+            playing = false;
+        }
+    });
+    // Optional: if you want clicking anywhere else to stop playing, you can add handlers
+});
+
+// Index page greetings
+const greetingsText = document.getElementById("greetings-text");
+const typeCursor = document.getElementById("type-cursor");
+if (greetingsText && typeCursor) {
+    const SPEED = 100;
+    const greetings = [
+        "Greetings",
+        "السلام عليكم",
+        "आदाब",
+        "안녕하세요",
+        "Hola"
+    ];
+    let greetingIndex = 0;
+    let charIndex = 0;
+    let deleting = false;
+    let running = false;
+    greetingsText.textContent = greetings[0];
+    function typeGreetings() {
+        if (!running) return;
+        const current = greetings[greetingIndex];
+        greetingsText.parentElement.style.direction =
+            /[\u0600-\u06FF]/.test(current) ? "rtl" : "ltr";
+        if (!deleting) {
+            greetingsText.textContent = current.substring(0, charIndex + 1);
+            charIndex++;
+            if (charIndex === current.length) {
+                deleting = true;
+                setTimeout(typeGreetings, 20 * SPEED);
+                return;
+            }
+            setTimeout(typeGreetings, 2 * SPEED);
+        } else {
+            greetingsText.textContent = current.substring(0, charIndex - 1);
+            charIndex--;
+            if (charIndex === 0) {
+                deleting = false;
+                greetingIndex = (greetingIndex + 1) % greetings.length;
+                setTimeout(typeGreetings, 6 * SPEED);
+                return;
+            }
+            setTimeout(typeGreetings, 1 * SPEED);
+        }
+    }
+    greetingsText.addEventListener("click", () => {
+        if (running) {
+            // Stop and reset
+            running = false;
+            greetingsText.textContent = greetings[0];
+            typeCursor.style.display = "none";
+            greetingIndex = 0;
+            charIndex = 0;
+            deleting = false;
+            return;
+        }
+        running = true;
+        greetingIndex = 0;
+        charIndex = 0;
+        deleting = false;
+        greetingsText.textContent = "";
+        typeCursor.style.display = "inline-block";
+        typeGreetings();
+    });
+}

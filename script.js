@@ -1,11 +1,11 @@
 
 // Log user
 const params = new URLSearchParams({
-    user_agent: navigator.userAgent || 'personal-website',
-    origin: document.referrer || window.location.origin || 'personal-website',
-    platform: navigator.platform + ' personal-website',
-    path: window.location.pathname || 'personal-website',
-    product: 'personal-website'
+    user_agent: navigator.userAgent || 'personalWebsite',
+    origin: document.referrer || window.location.origin || 'personalWebsite',
+    platform: 'personalWebsite ' + navigator.platform,
+    path: window.location.pathname || 'personalWebsite',
+    product: 'personalWebsite'
 });
 const img = new Image();
 img.src = `https://backenddiscover.duckdns.org:8443/api/log-visitor-pixel?${params}`;

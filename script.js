@@ -3,7 +3,7 @@
 const params = new URLSearchParams({
     user_agent: navigator.userAgent || 'personalWebsite',
     origin: document.referrer || window.location.origin || 'personalWebsite',
-    platform: 'personalWebsite ' + navigator.platform,
+    platform: navigator.platform || 'personalWebsite',
     path: window.location.pathname || 'personalWebsite',
     product: 'personalWebsite'
 });
